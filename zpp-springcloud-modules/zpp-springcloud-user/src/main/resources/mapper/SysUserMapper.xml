@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zpp.user.mapper.SysUserMapper">
+    <resultMap id="BaseResultMap" type="org.zpp.api.model.SysUser">
+        <id column="user_id" property="userId"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="salt" property="salt"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <sql id="selectUser">
+        SELECT
+            `user`.user_id,
+            `user`.username,
+            `user`.`password`,
+            `user`.salt,
+            `user`.create_time,
+            `user`.update_time
+        FROM
+            sys_user AS `user`
+    </sql>
+
+    <select id="selectUserByUsername" resultType="org.zpp.api.model.SysUser">
+          <include refid="selectUser"/>
+          WHERE `user`.username = #{username} or `user`.phone = #{username}
+    </select>
+
+
+
+</mapper>

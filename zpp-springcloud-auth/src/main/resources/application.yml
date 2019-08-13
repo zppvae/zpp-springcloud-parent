@@ -1,0 +1,51 @@
+server:
+  port: 8084
+
+spring:
+  datasource:
+      name: test
+      url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/zpp-springcloud?useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT%2B8
+      username: root
+      password: 123456
+      # 使用druid数据源
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      filters: stat
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+  session:
+    store-type: redis
+
+security:
+  code:
+    image:
+      length: 4
+      width: 100
+
+  oauth2:
+    tokenStore: redis
+    jwtSigningKey: zpp
+    clients[0]:
+      clientId: zpp
+      clientSecret: zpp
+      # clientId对应的token的有效期，单位：s
+      accessTokenValidateSeconds: 3600
+  # 社交登录配置
+  social:
+    weixin:
+      app-id: wxd99431bbff8305a0
+      app-secret: 60f78681d063590a469f1b297feff3c4
+    qq:
+      app-id: 101386962
+      app-secret: 2a0f820407df400b84a854d054be8b6a
+      providerId: qq

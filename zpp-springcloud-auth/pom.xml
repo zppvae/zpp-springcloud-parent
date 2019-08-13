@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.zpp</groupId>
+    <artifactId>zpp-springcloud-auth</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+
+    <name>zpp-springcloud-auth</name>
+    <description>服务认证与授权</description>
+
+    <parent>
+        <groupId>org.zpp</groupId>
+        <artifactId>zpp-springcloud-parent</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <security.version>1.0</security.version>
+        <spring-security-oauth2.version>2.3.2.RELEASE</spring-security-oauth2.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.zpp</groupId>
+            <artifactId>zpp-springcloud-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!--
+            解决springboot2.0 redis存储token bug
+            https://github.com/spring-projects/spring-security-oauth2-boot/issues/16
+        -->
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+            <version>${spring-security-oauth2.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.zpp.security</groupId>
+            <artifactId>zpp-springboot-security-app</artifactId>
+            <version>${security.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-jwt</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!-- druid -->
+        <dependency>
+            <groupId>com.github.drtrang</groupId>
+            <artifactId>druid-spring-boot2-starter</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

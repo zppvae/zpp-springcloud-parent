@@ -1,0 +1,32 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: zpp-gateway
+  cloud:
+    config:
+      fail-fast: true
+      name: ${spring.application.name}
+      discovery:
+        enabled: true
+        service-id: zpp-config
+  main:
+    allow-bean-definition-overriding: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8081/eureka
+    registry-fetch-interval-seconds: 10
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+

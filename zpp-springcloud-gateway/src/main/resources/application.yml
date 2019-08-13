@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lowerCaseServiceId: true
+      routes:
+        # 授权
+        - id: zpp-auth
+          uri: lb://ZPP-AUTH
+          predicates:
+            - Path=/auth/**
+          filters:
+            # 请求在转发之前去掉/auth
+            - StripPrefix=1
+            # 限流
+            - name: RequestRateLimiter
+              args:
+                key-resolver: '#{@remoteAddressKeyResolver}'
+                redis-rate-limiter.replenishRate: 10
+                redis-rate-limiter.burstCapacity: 20
+

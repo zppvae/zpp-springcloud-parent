@@ -1,0 +1,14 @@
+server:
+  port: 8081
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8081/eureka/
+
+spring:
+  application:
+    name: zpp-eureka-server
+

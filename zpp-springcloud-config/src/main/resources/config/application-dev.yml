@@ -1,0 +1,14 @@
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  global-config:
+    banner: false
+    db-config:
+      id-type: 0
+      field-strategy: 1
+      table-underline: true
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    # 打印sql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
