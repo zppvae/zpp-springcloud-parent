@@ -34,12 +34,14 @@ springcloud集成Eureka、Zuul、config、oauth2.0
 | deviceId     | 唯一Id    |
 
 `请求参数`：
+
 | 参数名 | 说明 |
 | :------------- | :------------ |
 |mobile    |手机号|
 |smsCode   |验证码|
 
 `响应参数`：
+
 | 参数名 | 说明 |
 | :------------- | :------------ |
 |access_token    |访问token|
