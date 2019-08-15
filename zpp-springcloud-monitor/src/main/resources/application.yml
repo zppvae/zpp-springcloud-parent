@@ -1,0 +1,56 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: zpp-monitor
+  # 监控登录账号配置
+  security:
+    user:
+      password: admin
+      name: admin
+  mail:
+    host: smtp.qq.com
+    username: xx@qq.com
+    # 服务商授权客户端连接的密码
+    password: xxx
+
+  boot:
+    admin:
+      notify:
+        mail:
+          to: xx@163.com
+          from: xx@qq.com
+  cloud:
+    config:
+      fail-fast: true
+      discovery:
+        service-id: zpp-config
+        enabled: true
+      profile: ${spring.profiles.active}
+      label: ${spring.profiles.active}
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8081/eureka
+    registry-fetch-interval-seconds: 10
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

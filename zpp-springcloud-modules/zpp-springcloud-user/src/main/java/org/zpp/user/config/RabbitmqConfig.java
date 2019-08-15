@@ -3,7 +3,7 @@ package org.zpp.user.config;
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.zpp.common.constant.MQConstant;
+import org.zpp.common.core.constant.MQConstant;
 
 /**
  * @author zpp

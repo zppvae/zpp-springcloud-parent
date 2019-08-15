@@ -32,6 +32,12 @@
             <version>1.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.zpp</groupId>
+            <artifactId>zpp-springcloud-common-security</artifactId>
+            <version>1.0</version>
+        </dependency>
+
         <!--
             解决springboot2.0 redis存储token bug
             https://github.com/spring-projects/spring-security-oauth2-boot/issues/16
@@ -40,12 +46,6 @@
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
             <version>${spring-security-oauth2.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.zpp.security</groupId>
-            <artifactId>zpp-springboot-security-app</artifactId>
-            <version>${security.version}</version>
         </dependency>
 
         <dependency>

@@ -4,8 +4,10 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.zpp.api.dto.UserDTO;
-import org.zpp.common.constant.MQConstant;
-import org.zpp.common.template.MobileCodeTemplate;
+import org.zpp.common.core.constant.MQConstant;
+import org.zpp.common.core.template.MobileCodeTemplate;
+import org.zpp.common.security.vo.SecurityUser;
+import org.zpp.security.core.util.SecurityUtils;
 import org.zpp.user.service.SysUserService;
 
 /**
@@ -22,9 +24,14 @@ public class UserController {
     @Autowired
     private SysUserService userService;
 
-    @GetMapping("/{username}")
+    @GetMapping("/username/{username}")
     public UserDTO getUserByUsername(@PathVariable String username) {
         return userService.getUserByUsername(username);
+    }
+
+    @GetMapping("/me")
+    public SecurityUser getMe(){
+        return (SecurityUser)SecurityUtils.getSecurityUser();
     }
 
     /**

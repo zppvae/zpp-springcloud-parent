@@ -1,3 +1,6 @@
+server:
+  port: 8084
+
 spring:
   application:
     name: zpp-auth
@@ -22,3 +25,4 @@ eureka:
     serviceUrl:
       defaultZone: http://127.0.0.1:8081/eureka
     registry-fetch-interval-seconds: 10
+

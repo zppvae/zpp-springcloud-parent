@@ -1,12 +1,11 @@
 package org.zpp.api.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.zpp.api.dto.UserDTO;
-import org.zpp.common.constant.ServiceConstant;
+import org.zpp.common.core.constant.ServiceConstant;
 
 /**
  * @author zpp
@@ -20,6 +19,6 @@ public interface APIUserService {
      * @param username
      * @return
      */
-    @RequestMapping(method = RequestMethod.GET, value = "/user/{username}")
+    @RequestMapping(method = RequestMethod.GET, value = "/user/username/{username}")
     UserDTO getUserByUsername(@PathVariable("username") String username);
 }

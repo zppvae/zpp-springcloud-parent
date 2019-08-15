@@ -1,0 +1,33 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lowerCaseServiceId: true
+      routes:
+        # 授权
+        - id: zpp-auth
+          uri: lb://ZPP-AUTH
+          predicates:
+            - Path=/auth/**
+          filters:
+            # 请求在转发之前去掉/auth
+            - StripPrefix=1
+            # 限流
+            - name: RequestRateLimiter
+              args:
+                # 用于限流的键的解析器的 Bean 对象的名字
+                key-resolver: '#{@remoteAddressKeyResolver}'
+                # 令牌桶每秒填充平均速率
+                redis-rate-limiter.replenishRate: 10
+                # 令牌桶总容量
+                redis-rate-limiter.burstCapacity: 20
+        # 用户
+        - id: zpp-user
+          uri: lb://ZPP-USER
+          predicates:
+            - Path=/admin/**
+          filters:
+            - StripPrefix=1
+

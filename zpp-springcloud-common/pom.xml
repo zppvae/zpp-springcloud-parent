@@ -7,7 +7,12 @@
     <artifactId>zpp-springcloud-common</artifactId>
     <version>1.0</version>
 
-    <packaging>jar</packaging>
+    <modules>
+        <module>zpp-springcloud-common-core</module>
+        <module>zpp-springcloud-common-security</module>
+    </modules>
+
+    <packaging>pom</packaging>
     <name>zpp-springcloud-common</name>
     <description>common</description>
 
@@ -17,40 +22,4 @@
         <version>1.0</version>
     </parent>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-    </properties>
-
-
-    <dependencies>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>${jjwt.version}</version>
-        </dependency>
-
-        <!--消息总线-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-        </plugins>
-    </build>
 </project>

@@ -1,6 +1,6 @@
 package org.zpp.message.handler;
 
-import org.zpp.common.template.MobileCodeTemplate;
+import org.zpp.common.core.template.MobileCodeTemplate;
 
 /**
  * @author zpp

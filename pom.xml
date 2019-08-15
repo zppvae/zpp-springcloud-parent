@@ -26,6 +26,8 @@
         <jjwt.version>0.9.0</jjwt.version>
         <fastjson.version>1.2.46</fastjson.version>
         <mybatis-plus.version>3.1.0</mybatis-plus.version>
+        <security.version>1.0</security.version>
+        <spring-boot-admin.version>2.1.6</spring-boot-admin.version>
     </properties>
 
     <dependencies>
@@ -53,11 +55,13 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
+        <!-- 断路器 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
 
+        <!-- 监控 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -106,6 +110,7 @@
         <module>zpp-springcloud-auth</module>
         <module>zpp-springcloud-common</module>
         <module>zpp-springcloud-modules</module>
+        <module>zpp-springcloud-monitor</module>
     </modules>
 
     <build>

@@ -6,8 +6,8 @@ import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.zpp.common.constant.MQConstant;
-import org.zpp.common.template.MobileCodeTemplate;
+import org.zpp.common.core.constant.MQConstant;
+import org.zpp.common.core.template.MobileCodeTemplate;
 import org.zpp.message.handler.SmsMessageHandler;
 
 import java.util.Map;

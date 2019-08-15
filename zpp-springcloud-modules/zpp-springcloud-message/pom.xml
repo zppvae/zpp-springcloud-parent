@@ -21,7 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>org.zpp</groupId>
-            <artifactId>zpp-springcloud-common</artifactId>
+            <artifactId>zpp-springcloud-common-core</artifactId>
             <version>1.0</version>
         </dependency>
 

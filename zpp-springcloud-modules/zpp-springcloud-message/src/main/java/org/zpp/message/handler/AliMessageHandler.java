@@ -4,8 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
-import org.zpp.common.constant.MQConstant;
-import org.zpp.common.template.MobileCodeTemplate;
+import org.zpp.common.core.constant.MQConstant;
+import org.zpp.common.core.template.MobileCodeTemplate;
 
 
 /**

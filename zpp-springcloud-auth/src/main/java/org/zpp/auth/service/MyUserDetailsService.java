@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import org.zpp.api.dto.UserDTO;
 import org.zpp.api.feign.APIUserService;
 import org.zpp.api.model.SysUser;
+import org.zpp.common.security.vo.SecurityUser;
 
 import java.util.Collection;
 
