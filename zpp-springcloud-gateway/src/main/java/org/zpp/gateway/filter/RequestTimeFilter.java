@@ -21,6 +21,8 @@ import java.nio.CharBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.atomic.AtomicReference;
 
+import static org.zpp.gateway.common.GatewayConstant.CACHE_REQUEST_BODY_OBJECT_KEY;
+
 /**
  * 请求时间过滤器
  *
@@ -40,10 +42,8 @@ public class RequestTimeFilter implements GlobalFilter, Ordered {
         log.info("[请求方式] - [{}]",serverHttpRequest.getMethod().name());
         log.info("[请求host] - [{}]",serverHttpRequest.getURI().getHost());
         log.info("[请求path] - [{}]",serverHttpRequest.getURI().getPath());
+        log.info("[请求参数] - [{}]",exchange.getAttributes().get(CACHE_REQUEST_BODY_OBJECT_KEY));
 
-        if ("GET".equals(serverHttpRequest.getMethodValue())) {
-            log.info("[请求参数] - [{}]",serverHttpRequest.getQueryParams());
-        }
         return chain.filter(exchange).then(
                 Mono.fromRunnable(() -> {
                     Long startTime = exchange.getAttribute(START_TIME);

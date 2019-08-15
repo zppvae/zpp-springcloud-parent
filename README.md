@@ -3,6 +3,13 @@
 ## 项目介绍
 springcloud集成Eureka、Zuul、config、oauth2.0
 
+## 过滤器
+
+### GatewayFilter与GlobalFilter
+Global filters 被应用到所有的路由上。
+
+Gateway filter将应用到单个路由上或者一个分组的路由上。
+
 ## 授权
 
 `网关URL`：`http://127.0.0.1:8083`
