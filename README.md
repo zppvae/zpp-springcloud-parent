@@ -3,6 +3,32 @@
 ## 项目介绍
 springcloud集成Eureka、Zuul、config、oauth2.0
 
+## 分布式配置
+
+### 加密
+https://github.com/ulisesbocchio/jasypt-spring-boot
+
+```
+# input：加密参数
+# password：加密秘钥
+# algorithm：加密算法
+java -cp jasypt-1.9.2.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input="xxx" password=aaa algorithm=PBEWithMD5AndDES
+
+输出：
+----ENVIRONMENT-----------------
+
+Runtime: Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 25.60-b23
+
+----ARGUMENTS-------------------
+
+algorithm: PBEWithMD5AndDES
+input: xxx
+password: aaa
+
+----OUTPUT----------------------
+IbmvPODFXzeMDeDeaCSW8255mJA=
+```
+
 ## 过滤器
 
 ### GatewayFilter与GlobalFilter

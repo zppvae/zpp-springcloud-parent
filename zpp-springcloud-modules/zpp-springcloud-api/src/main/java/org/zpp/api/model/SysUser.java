@@ -1,6 +1,7 @@
 package org.zpp.api.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -12,23 +13,41 @@ public class SysUser implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@TableId(value = "user_id", type = IdType.AUTO)
 	private Integer userId;
 
+	/**
+	 * 用户名
+	 */
 	private String username;
 
+	/**
+	 * 密码
+	 */
 	private String password;
 
 	/**
-	 * 随机盐
+	 * 邮箱
 	 */
-	@JsonIgnore
-	private String salt;
+	private String email;
 
+	/**
+	 * 手机号
+	 */
+	private String phone;
+
+	/**
+	 * 创建时间
+	 */
 	private LocalDateTime createTime;
 
-
+	/**
+	 * 更新时间
+	 */
 	private LocalDateTime updateTime;
 
-	private Integer deptId;
-
+	/**
+	 * 删除标识
+	 */
+	private String delFlag;
 }

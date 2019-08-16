@@ -18,9 +18,9 @@ public class SysRole extends Model<SysRole> {
 	private String roleName;
 
 	/**
-	 * 角色标识
+	 * 角色类型
 	 */
-	private String roleCode;
+	private int roleType;
 
 	private String roleDesc;
 
@@ -29,7 +29,7 @@ public class SysRole extends Model<SysRole> {
 	private LocalDateTime updateTime;
 
 	/**
-	 * 删除标识（0-正常,1-删除）
+	 * 删除标识
 	 */
 	private String delFlag;
 

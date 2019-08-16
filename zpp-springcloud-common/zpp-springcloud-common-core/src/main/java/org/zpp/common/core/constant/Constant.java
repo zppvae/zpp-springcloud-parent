@@ -7,4 +7,14 @@ package org.zpp.common.core.constant;
 public interface Constant {
 
     String UTF8 = "UTF-8";
+
+    /**
+     * 未删除
+     */
+    int DEL_FLAG_NO = 0;
+
+    /**
+     * 已删除
+     */
+    int DEL_FLAG_YES = 1;
 }

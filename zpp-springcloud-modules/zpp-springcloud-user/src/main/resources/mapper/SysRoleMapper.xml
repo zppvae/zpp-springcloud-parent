@@ -5,7 +5,7 @@
 	<resultMap id="BaseResultMap" type="org.zpp.api.model.SysRole">
 		<id column="role_id" property="roleId"/>
 		<result column="role_name" property="roleName"/>
-		<result column="role_code" property="roleCode"/>
+		<result column="role_type" property="roleType"/>
 		<result column="role_desc" property="roleDesc"/>
 		<result column="create_time" property="createTime"/>
 		<result column="update_time" property="updateTime"/>
@@ -13,7 +13,7 @@
 	</resultMap>
 
 	<select id="selectRolesByUserId" resultMap="BaseResultMap">
-        SELECT r.role_id,r.role_name,r.role_code,r.role_desc
+        SELECT r.role_id,r.role_name,r.role_type,r.role_desc
         FROM
         sys_role r, sys_user_role ur WHERE r.role_id = ur.role_id AND r.del_flag = 0 and  ur.user_id=#{userId}
     </select>

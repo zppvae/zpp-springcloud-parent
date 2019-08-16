@@ -59,6 +59,11 @@ management:
       exposure:
         include: '*'
 
+# 加密根密码配置
+jasypt:
+  encryptor:
+    password: zppcloud
+
 # 安全模块配置
 security:
   code:
@@ -76,8 +81,8 @@ security:
   # 社交登录配置
   social:
     weixin:
-      app-id: wxd99431bbff8305a0
-      app-secret: 60f78681d063590a469f1b297feff3c4
+      app-id: ENC(IbmvPODFXzeMD41Ip96fyyGcCbWBTeDeaCSW8255mJA=)
+      app-secret: ENC(H2WPqrBYGJDd9n+xxVP98zNCEwwnI0wYk/0Dx/hhSHldAg5WvcL7/Oe1FhXaeW/v)
     qq:
       app-id: 101386962
       app-secret: 2a0f820407df400b84a854d054be8b6a

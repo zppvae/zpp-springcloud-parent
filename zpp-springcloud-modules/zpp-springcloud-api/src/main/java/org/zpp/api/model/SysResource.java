@@ -34,10 +34,13 @@ public class SysResource extends Model<SysResource> {
 	private LocalDateTime updateTime;
 
 	/**
-	 * 0--正常 1--删除
+	 * 删除标识
 	 */
 	private String delFlag;
 
+	/**
+	 * 页面url路径
+	 */
 	private String path;
 
 

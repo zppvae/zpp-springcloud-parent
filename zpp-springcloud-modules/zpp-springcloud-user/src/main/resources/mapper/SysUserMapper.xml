@@ -6,7 +6,8 @@
         <id column="user_id" property="userId"/>
         <result column="username" property="username"/>
         <result column="password" property="password"/>
-        <result column="salt" property="salt"/>
+        <result column="email" property="email"/>
+        <result column="phone" property="phone"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
     </resultMap>
@@ -15,8 +16,9 @@
         SELECT
             `user`.user_id,
             `user`.username,
+            `user`.email,
+            `user`.phone,
             `user`.`password`,
-            `user`.salt,
             `user`.create_time,
             `user`.update_time
         FROM

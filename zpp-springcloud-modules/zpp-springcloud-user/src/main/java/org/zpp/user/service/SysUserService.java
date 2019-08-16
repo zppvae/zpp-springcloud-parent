@@ -16,4 +16,11 @@ public interface SysUserService extends IService<SysUser> {
      * @return
      */
     UserDTO getUserByUsername(String username);
+
+    /**
+     * 新增用户
+     * @param dto
+     * @return
+     */
+    boolean saveUser(UserDTO dto);
 }

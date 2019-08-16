@@ -23,6 +23,11 @@ public class UserDTO implements Serializable {
     private List<SysRole> roles;
 
     /**
+     * 角色id集合
+     */
+    private List<Integer> roleIds;
+
+    /**
      * 权限标识集合
      */
     private Set<String> permissions;
