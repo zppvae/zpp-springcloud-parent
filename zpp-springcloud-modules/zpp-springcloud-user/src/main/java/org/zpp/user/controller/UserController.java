@@ -26,7 +26,7 @@ public class UserController {
     private SysUserService userService;
 
     @GetMapping("/username/{username}")
-    public UserDTO getUserByUsername(@PathVariable String username) {
+    public UserDTO getUserByUsername(@PathVariable String username) throws Exception{
         return userService.getUserByUsername(username);
     }
 

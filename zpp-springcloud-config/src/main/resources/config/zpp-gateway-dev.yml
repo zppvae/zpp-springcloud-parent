@@ -30,4 +30,8 @@ spring:
             - Path=/admin/**
           filters:
             - StripPrefix=1
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: 'forward:/fallback'
 

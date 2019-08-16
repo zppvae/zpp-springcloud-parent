@@ -15,6 +15,7 @@ mybatis-plus:
 
 # 请求和响应压缩配置
 feign:
+  # 开启hystrix降级
   hystrix:
     enabled: true
   okhttp:
@@ -32,15 +33,15 @@ feign:
     response:
       enabled: true
 
-
+# https://cloud.spring.io/spring-cloud-static/Greenwich.SR1/single/spring-cloud.html#spring-cloud-consul-hystrix
 hystrix:
   command:
-    default:
+    fallbackcmd:
       execution:
         isolation:
           strategy: SEMAPHORE
           thread:
-            timeoutInMilliseconds: 60000
+            timeoutInMilliseconds: 5000
   shareSecurityContext: true
 
 ribbon:
@@ -59,7 +60,7 @@ management:
       exposure:
         include: '*'
 
-# 加密根密码配置
+# 加密配置
 jasypt:
   encryptor:
     password: zppcloud

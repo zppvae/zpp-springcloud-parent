@@ -19,6 +19,8 @@ import reactor.core.publisher.Mono;
 import java.net.URI;
 import java.nio.CharBuffer;
 import java.nio.charset.StandardCharsets;
+import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static org.zpp.gateway.common.GatewayConstant.CACHE_REQUEST_BODY_OBJECT_KEY;
@@ -33,21 +35,26 @@ import static org.zpp.gateway.common.GatewayConstant.CACHE_REQUEST_BODY_OBJECT_K
 public class RequestTimeFilter implements GlobalFilter, Ordered {
 
     private static final String START_TIME = "startTime";
+    private static final String REQ_ID = "reqId";
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest serverHttpRequest = exchange.getRequest();
-        exchange.getAttributes().put(START_TIME, System.currentTimeMillis());
+        Map<String,Object> attrMap = exchange.getAttributes();
+        attrMap.put(START_TIME, System.currentTimeMillis());
 
-        log.info("[请求方式] - [{}]",serverHttpRequest.getMethod().name());
-        log.info("[请求host] - [{}]",serverHttpRequest.getURI().getHost());
-        log.info("[请求path] - [{}]",serverHttpRequest.getURI().getPath());
-        log.info("[请求参数] - [{}]",exchange.getAttributes().get(CACHE_REQUEST_BODY_OBJECT_KEY));
+        String reqId = UUID.randomUUID().toString();
+        attrMap.put(REQ_ID,reqId);
+
+        log.info("[{}] - [请求path] - [{}]",reqId,serverHttpRequest.getURI().getPath());
+        log.info("[{}] - [请求方式] - [{}]",reqId,serverHttpRequest.getMethod().name());
+        log.info("[{}] - [请求host] - [{}]",reqId,serverHttpRequest.getURI().getHost());
+        log.info("[{}] - [请求参数] - [{}]",reqId,attrMap.get(CACHE_REQUEST_BODY_OBJECT_KEY));
 
         return chain.filter(exchange).then(
                 Mono.fromRunnable(() -> {
                     Long startTime = exchange.getAttribute(START_TIME);
-                    log.info("[消耗时间] - [{}]",(System.currentTimeMillis() - startTime) + "ms");
+                    log.info("[{}] - [消耗时间] - [{}]",exchange.getAttribute(REQ_ID),(System.currentTimeMillis() - startTime) + "ms");
                 })
         );
 

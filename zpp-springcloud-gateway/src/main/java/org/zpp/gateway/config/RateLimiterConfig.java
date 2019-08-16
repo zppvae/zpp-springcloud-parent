@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
  * @author zpp
  */
 @Configuration
-public class RateLimiterConfiguration {
+public class RateLimiterConfig {
 
 	@Bean(value = "remoteAddressKeyResolver")
 	public KeyResolver remoteAddressKeyResolver() {

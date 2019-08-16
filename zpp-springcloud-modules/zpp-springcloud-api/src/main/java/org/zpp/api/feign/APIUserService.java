@@ -5,13 +5,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.zpp.api.dto.UserDTO;
+import org.zpp.api.feign.fallback.factory.APIUserServiceFallbackFactory;
 import org.zpp.common.core.constant.ServiceConstant;
 
 /**
  * @author zpp
  * @date 2019/8/9 16:00
  */
-@FeignClient(value = ServiceConstant.USER_SERVICE)
+@FeignClient(value = ServiceConstant.USER_SERVICE,fallbackFactory = APIUserServiceFallbackFactory.class)
 public interface APIUserService {
 
     /**
