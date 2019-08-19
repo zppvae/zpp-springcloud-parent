@@ -1,7 +1,15 @@
 # zpp-springcloud-parent
 
 ## 项目介绍
-springcloud集成Eureka、Zuul、config、oauth2.0
+springcloud 集成 Eureka、Zuul、config、oauth2.0
+
+## 启动顺序
+
+- EurekaApplication
+- ConfigApplication
+- GatewayApplication
+- AuthApplication
+- UserApplication
 
 ## 分布式配置
 
