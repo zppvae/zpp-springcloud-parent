@@ -62,7 +62,7 @@ Gateway filter将应用到单个路由上或者一个分组的路由上。
 | :------------- | :------------ |
 | deviceId     | 唯一Id    |
 
-#### 登录
+#### 手机号短信登录
 `URL`：`/auth/authentication/mobile`
 
 `请求方式`：`POST`
@@ -98,6 +98,94 @@ Gateway filter将应用到单个路由上或者一个分组的路由上。
     "token_type": "bearer",
     "refresh_token": "6a5d7e0f-bb49-4298-9a15-a5300430c721",
     "expires_in": 1549,
+    "scope": "all"
+}
+```
+
+###  通过用户名密码授权
+
+#### 获取图片验证验证码
+
+`URL`：`auth/code/image`
+
+`请求方式`：`GET`
+
+`请求头`：
+
+| 参数名 | 说明 |
+| :------------- | :------------ |
+| deviceId     | 唯一Id    |
+
+#### 用户名密码登录
+`URL`：`/auth/authentication/form`
+
+`请求方式`：`POST`
+
+`请求头`：
+
+| 参数名 | 说明 |
+| :------------- | :------------ |
+|Content-Type|application/x-www-form-urlencoded|
+| deviceId     | 唯一Id    |
+
+`请求参数`：
+
+| 参数名 | 说明 |
+| :------------- | :------------ |
+|username    |用户名|
+|password   |密码|
+|imageCode   |验证码|
+
+`响应参数`：
+
+| 参数名 | 说明 |
+| :------------- | :------------ |
+|access_token    |访问token|
+|token_type   |token类型|
+|refresh_token   |刷新access_token的token|
+|expires_in   |access_token有效期，单位：s|
+|scope   |scope|
+
+`返回示例`：
+```
+{
+    "access_token": "f7b8f52c-cbca-438b-a0bb-f5f5e65655c6",
+    "token_type": "bearer",
+    "refresh_token": "627bb9c2-f13a-4779-ad28-aa6b141bbe95",
+    "expires_in": 3599,
+    "scope": "all"
+}
+```
+
+### 刷新token
+`URL`：`/oauth/token?grant_type=refresh_token&refresh_token=cb3b42a8-fee5-48b2-9ae0-c9353139b588`
+
+`请求方式`：`POST`
+
+`请求参数`：
+
+| 参数名 | 说明 |
+| :------------- | :------------ |
+|grant_type    |refresh_token|
+|refresh_token   |授权登录返回的refresh_token|
+
+`响应参数`：
+
+| 参数名 | 说明 |
+| :------------- | :------------ |
+|access_token    |访问token|
+|token_type   |token类型|
+|refresh_token   |刷新access_token的token|
+|expires_in   |access_token有效期，单位：s|
+|scope   |scope|
+
+`返回示例`：
+```
+{
+    "access_token": "12b0e567-3eb8-412e-b16e-4349bbea62e7",
+    "token_type": "bearer",
+    "refresh_token": "cb3b42a8-fee5-48b2-9ae0-c9353139b588",
+    "expires_in": 3599,
     "scope": "all"
 }
 ```
