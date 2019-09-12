@@ -29,6 +29,7 @@
         <security.version>1.0</security.version>
         <spring-boot-admin.version>2.1.6</spring-boot-admin.version>
         <jasypt.version>2.1.1</jasypt.version>
+        <kaptcha.version>0.0.9</kaptcha.version>
     </properties>
 
     <dependencies>

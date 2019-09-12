@@ -17,4 +17,6 @@ public interface Constant {
      * 已删除
      */
     int DEL_FLAG_YES = 1;
+
+    int FAIL = -1;
 }

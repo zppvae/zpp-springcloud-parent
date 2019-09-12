@@ -5,7 +5,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.stereotype.Component;
-import org.zpp.common.core.bean.FilterIgnoreConfig;
+import org.zpp.common.core.bean.CloudProperties;
 import org.zpp.security.core.authorize.AuthorizeConfigProvider;
 
 /**
@@ -17,12 +17,12 @@ import org.zpp.security.core.authorize.AuthorizeConfigProvider;
 public class UserAuthorizeConfigProvider implements AuthorizeConfigProvider {
 
     @Autowired
-    private FilterIgnoreConfig filterIgnoreConfig;
+    private CloudProperties filterIgnoreConfig;
 
     @Override
     public boolean config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry config) {
         //不拦截配置的URL
-        filterIgnoreConfig.getUrls().forEach(url -> config.antMatchers(url).permitAll());
+        filterIgnoreConfig.getIgnoreUrls().forEach(url -> config.antMatchers(url).permitAll());
         return false;
     }
 }

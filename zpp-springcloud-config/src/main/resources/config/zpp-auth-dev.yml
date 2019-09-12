@@ -24,8 +24,13 @@ spring:
     maxOpenPreparedStatements: 20
 
 
-# 不拦截配置
-ignore:
-  urls:
+# 全局配置
+cloud:
+  ignore-urls:
     - /test/**
     - /actuator/**
+
+# 是否启用授权的验证码
+security:
+  validate-code:
+    enable: false

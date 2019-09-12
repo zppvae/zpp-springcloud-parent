@@ -21,7 +21,7 @@ spring:
       poolPreparedStatements: true
       maxOpenPreparedStatements: 20
 
-ignore:
-  urls:
+cloud:
+  ignore-urls:
     - /actuator/**
     - /user/username/*

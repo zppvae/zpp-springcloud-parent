@@ -23,6 +23,8 @@ spring:
                 redis-rate-limiter.replenishRate: 10
                 # 令牌桶总容量
                 redis-rate-limiter.burstCapacity: 20
+            # 验证码过滤器
+            - name: ValidateCodeFilter
         # 用户
         - id: zpp-user
           uri: lb://ZPP-USER
@@ -35,3 +37,9 @@ spring:
                 name: fallbackcmd
                 fallbackUri: 'forward:/fallback'
 
+# 全局配置文件
+cloud:
+  # 需要验证码的配置
+  validate-code-urls:
+    - /authentication/form
+    - /authentication/mobile
