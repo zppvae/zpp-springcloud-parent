@@ -3,13 +3,19 @@
 ## 项目介绍
 springcloud 集成 Eureka、Zuul、config、oauth2.0
 
-## 启动顺序
+## 服务部署
 
-- EurekaApplication
-- ConfigApplication
-- GatewayApplication
-- AuthApplication
-- UserApplication
+- 创建`mysql`数据库，默认数据库名为`zpp-springcloud`，可修改数据库名，同时也要修改`zpp-springcloud-config`
+中`resources/config`目录下对应的配置文件，执行目录`doc`下的sql文件
+- 将`doc/lib`下对应的jar包放到本地仓库对应的目录下（没有会报错）
+
+### 启动顺序
+
+- EurekaApplication（注册中心）
+- ConfigApplication（分布式配置）
+- GatewayApplication（网关）
+- AuthApplication（授权服务）
+- UserApplication（用户服务）
 
 ## 分布式配置
 
