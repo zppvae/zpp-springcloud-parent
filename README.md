@@ -1,7 +1,7 @@
 # zpp-springcloud-parent
 
 ## 项目介绍
-springcloud 集成 Eureka、Zuul、config、oauth2.0
+springcloud 集成 Eureka、config、gateway、oauth2.0、security、限流等
 
 ## 服务部署
 
