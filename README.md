@@ -1,7 +1,21 @@
 # zpp-springcloud-parent
 
 ## 项目介绍
-springcloud 集成 Eureka、config、gateway、oauth2.0、security、限流等
+springcloud 集成 Eureka、config、gateway、oauth2.0、security、限流、监控、链路跟踪等
+
+### 项目结构
+
+```
+zpp-springcloud-parent
+  doc                      -- 文档（数据库、lib）
+  zpp-springcloud-auth     -- 授权模块
+  zpp-springcloud-common   -- 公共模块
+  zpp-springcloud-config   -- 分布式配置模块
+  zpp-springcloud-control  -- 控制中心
+  zpp-springcloud-eureka   -- 注册中心
+  zpp-springcloud-gateway  -- api网关
+  zpp-springcloud-modules  -- 业务模块
+```
 
 ## 服务部署
 
@@ -56,19 +70,11 @@ Gateway filter将应用到单个路由上或者一个分组的路由上。
 
 ### 通过手机号授权
 
-#### 发送短信验证码
+#### 1. 发送短信验证码
 
-`URL`：`/auth/code/sms?mobile=13000000000`
+详见：<a href="#短信验证码">获取短信验证码</a>
 
-`请求方式`：`GET`
-
-`请求头`：
-
-| 参数名 | 说明 |
-| :------------- | :------------ |
-| deviceId     | 唯一Id    |
-
-#### 手机号短信登录
+#### 2. 手机号短信登录
 `URL`：`/auth/authentication/mobile`
 
 `请求方式`：`POST`
@@ -110,19 +116,11 @@ Gateway filter将应用到单个路由上或者一个分组的路由上。
 
 ###  通过用户名密码授权
 
-#### 获取图片验证验证码
+#### 1. 获取图片验证码
 
-`URL`：`auth/code/image`
+详见：<a href="#图片验证码">获取图片验证码</a>
 
-`请求方式`：`GET`
-
-`请求头`：
-
-| 参数名 | 说明 |
-| :------------- | :------------ |
-| deviceId     | 唯一Id    |
-
-#### 用户名密码登录
+#### 2. 用户名密码登录
 `URL`：`/auth/authentication/form`
 
 `请求方式`：`POST`
@@ -198,14 +196,26 @@ Gateway filter将应用到单个路由上或者一个分组的路由上。
 
 ## 验证码
 
-### 图片验证码
+### <a id="图片验证码">图片验证码</a>
 
-`URL`：`/code/image?deviceId=1111111111`
+`URL`：`/code/image?width=100&height=200
 
 `请求方式`：`GET`
 
-`请求参数`：
+`请求头`：
 
 | 参数名 | 说明 |
 | :------------- | :------------ |
 |deviceId    |唯一标识图片验证码|
+
+### <a id="短信验证码">短信验证码</a>
+
+`URL`：`/code/sms?mobile=13000000000`
+
+`请求方式`：`GET`
+
+`请求头`：
+
+| 参数名 | 说明 |
+| :------------- | :------------ |
+| deviceId     | 唯一Id    |
