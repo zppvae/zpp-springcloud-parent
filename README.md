@@ -198,7 +198,7 @@ Gateway filter将应用到单个路由上或者一个分组的路由上。
 
 ### <a id="图片验证码">图片验证码</a>
 
-`URL`：`/code/image?width=100&height=200
+`URL`：`/code/image?width=100&height=200`
 
 `请求方式`：`GET`
 
