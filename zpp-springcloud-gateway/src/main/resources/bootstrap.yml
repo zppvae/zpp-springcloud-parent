@@ -6,6 +6,7 @@ spring:
     name: zpp-gateway
   cloud:
     config:
+      # 是否启动快速失败机制，开启后先判断config服务是否正常
       fail-fast: true
       name: ${spring.application.name}
       discovery:

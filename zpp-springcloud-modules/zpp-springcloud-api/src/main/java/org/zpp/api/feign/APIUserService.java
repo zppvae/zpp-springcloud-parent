@@ -9,6 +9,9 @@ import org.zpp.api.feign.fallback.factory.APIUserServiceFallbackFactory;
 import org.zpp.common.core.constant.ServiceConstant;
 
 /**
+ * https://cloud.spring.io/spring-cloud-static/Greenwich.SR1/single/spring-cloud.html#_feign_querymap_support
+ * @SpringQueryMap：映射查询参数
+ *
  * @author zpp
  * @date 2019/8/9 16:00
  */
